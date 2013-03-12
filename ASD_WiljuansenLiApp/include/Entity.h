@@ -23,5 +23,6 @@ public:
 	gl::Texture texture;
 private:
 	GraphicsManager graphics;
+	//InputManager input;
 };
 

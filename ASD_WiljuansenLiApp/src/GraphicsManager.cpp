@@ -46,34 +46,12 @@ void GraphicsManager::nextFrame()
 
 void GraphicsManager::draw( Vec2f p )
 {
-	double seconds;
-	seconds = 0.1;
-	clock_t endwait;
-	endwait = clock () + seconds * CLOCKS_PER_SEC ;
-	 while (clock() < endwait) {}
 	float srcX = cur_col * cell_width;
 	float srcY = cur_row * cell_height;
-	gl::clear();
-	gl::draw( texture, Area ( srcX, srcY, srcX + cell_width-1, srcY + cell_height -1 ), 
-		Rectf( p.x, p.y, p.x + 128, p.y + 128) );
-	if(cur_col < num_cols -1)
-	{
-		cur_col++;
-	}
-	else
-	{
-		cur_col = 0;
-		/*
-		if(cur_row <num_rows -1)
-		{
-			cur_row++;
-		}
-		else
-		{
-			cur_row = 0;
-		}
-		*/
-	}
+	gl::clear( Color( 0, 0, 0 ) );
+	gl::enableAlphaBlending();
+	gl::draw( texture, Area ( srcX, srcY, srcX + cell_width, srcY + cell_height ), 
+		Rectf( p.x, p.y, p.x + cell_width, p.y + cell_height) );
 }
 
 void GraphicsManager::draw( Area a )

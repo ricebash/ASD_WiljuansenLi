@@ -6,6 +6,7 @@
 #include "cinder\ImageIo.h"
 #include "cinder\gl\Texture.h"
 #include "GraphicsManager.h"
+#include "PhysicsComponent.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -18,11 +19,11 @@ public:
 	~Entity(void);
 	Entity( Vec2f p, Vec2f hd, string filename, int fc, int fr, int fn );
 	void draw();
-
-	Vec2f position, half_dimen;
+	void update();
+	Vec2f position, half_dimen,velocity;
 	gl::Texture texture;
 private:
 	GraphicsManager graphics;
-	//InputManager input;
+	PhysicsComponent physics;
 };
 

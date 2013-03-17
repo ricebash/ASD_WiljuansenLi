@@ -20,5 +20,6 @@ PhysicsComponent::PhysicsComponent(Entity *ent)
 
 void PhysicsComponent::update()
 {
-	entity->position.x += 5;
+	entity->position.x += entity->velocity.x;
+	entity->position.y += entity->velocity.y;
 }

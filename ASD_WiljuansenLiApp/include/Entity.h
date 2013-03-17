@@ -6,7 +6,6 @@
 #include "cinder\ImageIo.h"
 #include "cinder\gl\Texture.h"
 #include "GraphicsManager.h"
-#include "PhysicsComponent.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -24,6 +23,5 @@ public:
 	gl::Texture texture;
 private:
 	GraphicsManager graphics;
-	PhysicsComponent physics;
 };
 

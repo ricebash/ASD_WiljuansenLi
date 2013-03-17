@@ -106,6 +106,7 @@
   <ItemGroup>
     <ClInclude Include="..\include\Entity.h" />
     <ClInclude Include="..\include\GraphicsManager.h" />
+    <ClInclude Include="..\include\InputComponent.h" />
     <ClInclude Include="..\include\PhysicsComponent.h" />
     <ClInclude Include="..\include\Resources.h" />
   </ItemGroup>
@@ -116,6 +117,7 @@
     <ClCompile Include="..\src\ASD_WiljuansenLiApp.cpp" />
     <ClCompile Include="..\src\Entity.cpp" />
     <ClCompile Include="..\src\GraphicsManager.cpp" />
+    <ClCompile Include="..\src\InputComponent.cpp" />
     <ClCompile Include="..\src\PhysicsComponent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

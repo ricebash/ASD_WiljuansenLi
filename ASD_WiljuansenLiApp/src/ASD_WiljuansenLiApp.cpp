@@ -20,7 +20,7 @@ class ASD_WiljuansenLiApp : public AppBasic {
 };
 
 Entity entity;
-GraphicsManager graphics;
+GraphicsManager grc;
 PhysicsComponent phy;
 InputComponent put;
 
@@ -32,8 +32,11 @@ void ASD_WiljuansenLiApp::setup()
 	//half_dimen.x = 100.0f;
 	//half_dimen.y = 100.0f;
 	entity = Entity( position, half_dimen, "juan.jpg", 4, 4, 16 );
+	
+	
 	phy = PhysicsComponent(&entity);
 	put = InputComponent(&entity);
+	grc = GraphicsManager(&entity, "juan.jpg", 4, 4, 4 );
 	//entity.texture = gl::Texture( loadImage( "../assets/Ardal.png" ) );
 }
 
@@ -84,6 +87,8 @@ void ASD_WiljuansenLiApp::keyUp(KeyEvent e)
 void ASD_WiljuansenLiApp::update()
 {
 	phy.update();
+	
+	grc.update();
 }
 
 void ASD_WiljuansenLiApp::draw()
@@ -93,6 +98,7 @@ void ASD_WiljuansenLiApp::draw()
 	gl::clear( Color( 0, 0, 0 ) ); 
 
 	entity.draw();
+	grc.draw(entity.position);
 }
 
 CINDER_APP_BASIC( ASD_WiljuansenLiApp, RendererGl )

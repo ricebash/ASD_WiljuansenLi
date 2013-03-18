@@ -5,7 +5,6 @@
 #include "cinder/gl/gl.h"
 #include "cinder\ImageIo.h"
 #include "cinder\gl\Texture.h"
-#include "GraphicsManager.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -21,7 +20,4 @@ public:
 	void update();
 	Vec2f position, half_dimen,velocity;
 	gl::Texture texture;
-private:
-	GraphicsManager graphics;
 };
-

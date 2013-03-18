@@ -1,4 +1,4 @@
-#include "..\include\GraphicsManager.h"
+#include "GraphicsManager.h"
 #include <time.h>
 
 using namespace ci;
@@ -15,6 +15,22 @@ GraphicsManager::~GraphicsManager(void)
 {
 }
 
+
+GraphicsManager::GraphicsManager(Entity *entity, string filename, int fr, int fc, int fn)
+{
+	entity = entity;
+	texture = gl::Texture( loadImage( "../assets/" + filename ) );
+	cur_row = 1;
+	cur_col = 0;
+	num_rows = fr;
+	num_cols = fc;
+	num_frames = fn;
+	cell_width = texture.getWidth() / num_cols;
+	cell_height = texture.getHeight() / num_rows;
+	start_cell = 0;
+	end_cell = fr * fc;
+}
+/*
 GraphicsManager::GraphicsManager( string filename, int fc, int fr, int fn )
 {
 	texture = gl::Texture( loadImage( "../assets/" + filename ) );
@@ -26,7 +42,7 @@ GraphicsManager::GraphicsManager( string filename, int fc, int fr, int fn )
 	cell_width = texture.getWidth() / num_cols;
 	cell_height = texture.getHeight() / num_rows;
 }
-
+*/
 void GraphicsManager::nextFrame()
 {
 	if ( ++cur_col == num_cols )
@@ -44,8 +60,15 @@ void GraphicsManager::nextFrame()
 	}
 }
 
+void GraphicsManager::update()
+{
+	if (clock() % 5 == 0)
+		nextFrame();
+}
+
 void GraphicsManager::draw( Vec2f p )
 {
+	//nextFrame();
 	float srcX = cur_col * cell_width;
 	float srcY = cur_row * cell_height;
 	gl::clear( Color( 0, 0, 0 ) );
